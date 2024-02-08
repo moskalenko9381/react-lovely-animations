@@ -1,0 +1,1 @@
+export {LyingCatComponent as LyingCat} from "./LyingCatComponent";

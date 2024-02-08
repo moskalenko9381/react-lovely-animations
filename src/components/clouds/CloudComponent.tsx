@@ -1,7 +1,7 @@
-import {IComponentProps} from "../props";
+import {IComponentProps, IComponentRowProps} from "../props";
 import React, {useMemo, useRef} from "react";
 import {useContainerSize} from "../../functions/hooks";
-import {LovelyContainer} from "../LovelyContainer";
+import {LovelyContainer} from "../wrapper/LovelyContainer";
 import {Cloud} from "./Cloud";
 import {ROW_POSITION} from "../../type";
 
@@ -12,14 +12,13 @@ const TOP_VALUE = (height: number, row?: ROW_POSITION) => {
     return row === "down" ? height * 0.8 : height / 2;
 };
 
-export const CloudComponent = (props: IComponentProps) => {
+export const CloudComponent = (props: IComponentRowProps) => {
     const {children, color, row} = props;
     const ref = useRef<HTMLDivElement>(null);
     const {width, height} = useContainerSize(ref);
     const top = TOP_VALUE(height, row);
 
     const itemsArray = useMemo(() => {
-        console.log("Width and height:", width, height);
         if (!width && !height) return null;
         const items = [];
         const len = 5;

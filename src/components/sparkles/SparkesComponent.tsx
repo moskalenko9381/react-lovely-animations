@@ -1,8 +1,8 @@
 import React, {useMemo, useRef} from "react";
 import {Sparkle} from "./Sparkle";
 import {useContainerSize} from "../../functions/hooks";
-import {PositionedArrayComponent} from "../PositionedArrayComponent";
-import {LovelyContainer} from "../LovelyContainer";
+import {PositionedArrayComponent} from "../wrapper/PositionedArrayComponent";
+import {LovelyContainer} from "../wrapper/LovelyContainer";
 import {IComponentDensityProps} from "../props";
 
 export const SparklesComponent = (props: IComponentDensityProps) => {

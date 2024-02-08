@@ -7,12 +7,10 @@ export function useContainerSize(ref: RefObject<HTMLDivElement> | null) {
 
     useLayoutEffect(() => {
         if (!ref || !ref.current) {
-            console.log("No element");
             return;
         }
         const element = ref.current;
         const observer = new ResizeObserver(() => {
-            console.log("New height");
             setHeight(element.clientHeight);
             setWidth(element.clientWidth);
         });
@@ -41,9 +39,9 @@ export const usePositionsFigureArray = (
         let newArray: { top: number; left: number }[] = [];
         const hInitial = lastMaxTop < maxTop ? lastMaxTop : 0;
         newArray = array.length ? getNewPositionedArray(array,
-                lastMaxTop, maxTop,
-                lastMaxLeft, maxLeft,
-                step, hInitial)
+            lastMaxTop, maxTop,
+            lastMaxLeft, maxLeft,
+            step, hInitial)
             : fillArray(
                 0,
                 maxTop,
@@ -56,7 +54,6 @@ export const usePositionsFigureArray = (
         setLastMaxTop(maxTop);
     }, [density, lastMaxTop, lastMaxLeft, maxTop, maxLeft]);
 
-    console.log("Positions:", array);
     return array;
 };
 
@@ -90,13 +87,12 @@ export const usePositionsOneRowFigureArray = (
                 step,
                 hInitial,
             )
-            : fillArray(hInitial, maxTop, 0, maxLeft, step);
+            : fillArray(hInitial, maxTop, step, maxLeft, step);
         setArray(newArray);
         setLastMaxLeft(maxLeft);
         setLastMaxTop(maxTop);
     }, [density, lastMaxTop, lastMaxLeft, maxTop, maxLeft]);
 
-    console.log("Positions:", array);
     return array;
 };
 
@@ -108,14 +104,11 @@ function fillArray(
     step: number,
 ) {
     const array = [];
-    for (let height = heightInitial; height < heightMax; height += step) {
-        for (let width = widthInitial; width < widthMax; width += step) {
-            const top =
-                Math.random() * (height + step / 2 - (height - step / 2) + 1) +
-                (height - step / 2);
-            const left =
-                Math.random() * (width - (width - step / 2) + 1) +
-                (width - step / 2);
+    for (let height = heightInitial; height <= heightMax; height += step) {
+        for (let width = widthInitial; width <= widthMax; width += step) {
+            let leftMin = width === widthInitial ? widthInitial : width - step / 2;
+            const top = Math.random() * (step + 1) + (height - step / 2);
+            const left = Math.random() * (width - leftMin + 1) + leftMin;
             array.push({top, left});
         }
     }
@@ -123,9 +116,9 @@ function fillArray(
 }
 
 function getNewPositionedArray(array: { top: number; left: number }[],
-                               lastMaxTop: number, maxTop: number,
-                               lastMaxLeft: number, maxLeft: number,
-                               step: number, hInitial: number) {
+    lastMaxTop: number, maxTop: number,
+    lastMaxLeft: number, maxLeft: number,
+    step: number, hInitial: number) {
     let newArray = [...array];
     if (lastMaxTop > maxTop) {
         // new height is less

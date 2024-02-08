@@ -1,0 +1,33 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import {Example} from "./Example.tsx";
+import * as Clouds from "./Clouds.stories.tsx";
+
+<Meta of={Clouds} title="Clouds" />
+
+# Clouds
+
+Flying clouds from left to right component.
+
+#### Example
+
+<Canvas of={Clouds.Up} />
+
+## Usage
+
+```ts
+import {Clouds} from "react-lovely-animations";
+
+const Example = () => {
+    return (
+        <Clouds>
+            <div>Just an example</div>
+        </Clouds>
+    );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+- **row** - A string with one of three possible values: "up", "middle" or "down". It defines the location of clouds. Default = "up".

@@ -29,7 +29,7 @@ const flyUp = (y: number) => keyframes`
   }
   100% {
     opacity: 0.1;
-    transform: scale(1) translateY(${y}px)
+    transform: scale(2) translateY(${y}px)
   }
 `;
 

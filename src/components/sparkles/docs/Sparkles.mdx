@@ -1,0 +1,33 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Sparkles from "./Sparkles.stories.tsx";
+
+<Meta of={Sparkles} title="Sparkles" />
+
+# Sparkles
+
+Flickering sparkles component.
+
+#### Example
+
+<Canvas of={Sparkles.Yellow_Average} />
+
+## Usage
+
+```ts
+import {Sparkles} from "react-lovely-animations";
+
+const Example = () => {
+    return (
+        <Sparkles>
+            <div>Just an example</div>
+        </Sparkles>
+    );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+- **density** - A string with one of three possible values: "rare", "average" or "often". It defines the density of sparkles. Default = "average".
+- **color** - A string with a color of sparkles. Default = "yellow".

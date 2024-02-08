@@ -1,8 +1,8 @@
 import {IComponentRowProps} from "../props";
 import React, {useMemo, useRef} from "react";
 import {useContainerSize} from "../../functions/hooks";
-import {PositionedRowComponent} from "../PositionedArrayComponent";
-import {LovelyContainer} from "../LovelyContainer";
+import {PositionedRowComponent} from "../wrapper/PositionedArrayComponent";
+import {LovelyContainer} from "../wrapper/LovelyContainer";
 import {Heart} from "./Heart";
 
 export const HeartsComponent = (props: IComponentRowProps) => {

@@ -5,7 +5,7 @@ export const Sparkle = (props: IFigureProps) => {
     const {top, left, color} = props;
     return (
         <AnimatedSparkle
-            $delay={Math.random() * (10 - 0.7 + 1) + 1}
+            $delay={Math.random() * (10 - 0.1 + 1) + 1}
             fill={color}
             stroke={color}
             strokeLinecap="round"
