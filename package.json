@@ -1,9 +1,12 @@
 {
-  "name": "react-lovely-animations",
+  "name": "@moskalenko9381/react-lovely-animations",
   "version": "0.1.0",
   "author": {
     "name": "Elisabeth Moskalenko",
     "email": "elisabeth.moskk@gmail.com"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/moskalenko9381"
   },
   "private": true,
   "type": "module",
