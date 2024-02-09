@@ -9,7 +9,6 @@
     "type": "git",
     "url": "git+https://github.com/moskalenko9381/react-lovely-animations.git"
   },
-  "private": true,
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
