@@ -1,12 +1,17 @@
 {
   "name": "react-lovely-animations",
   "version": "0.1.0",
+  "author": {
+    "name": "Elisabeth Moskalenko",
+    "email": "elisabeth.moskk@gmail.com"
+  },
   "private": true,
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepare": "npm run build",
     "start": "react-scripts start",
     "build": "tsc && vite build",
     "test": "react-scripts test",
